@@ -25,29 +25,33 @@
       <div class="weather-app">
         <form id="searchCity">
             <div class="row">
-              <div class="col-9">
-               <input
-                type="search"
-                placeholder="Search for a city..."
-                autofocus="on"
-                autocomplete="off"
-                id="newCity"
-                />
-             </div>
-             <div class="col-3">
-                <input
-                  type="submit"
-                  value="Search"
-                  class="search-button"
-                />
-              </div>
-      </div>
+                <div class="row">
+                    <div class="col-3">
+                     <input
+                     type="search"
+                     placeholder="Search for a city..."
+                     autofocus="on"
+                     autocomplete="off"
+                     id="newCity"
+                     />
+                    </div>
+                    <div class="col-3">
+                    <input
+                     type="submit"
+                      value="Search"
+                      class="search-button"
+                    />
+                    </div>
+                </div>
+            </div>
       <h2>Current Temperature <strong class="current-temp">2</strong> <span class="celcius-units">℃</span></h2>
 
       <ul>
         <li>Humidity: <span id="humidity"></span>%</li>
         <li>Wind: <span id="wind"></span> m/h</li>
+        <li>Description: <span id="description"></span></li>
       </ul>
+      <h4>Next 5 days</h4>
     </div>
     <script src="src/java.js"></script>
   </body>
