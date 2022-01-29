@@ -23,10 +23,10 @@
     <div class="container">
       <h1 class="title">Weather Forecast</h1>
       <div class="weather-app">
-        <form id="searchCity">
+        <form class="mb-3" id="searchCity">
             <div class="row">
                 <div class="row">
-                    <div class="col-3">
+                    <div class="col-6">
                      <input
                      type="search"
                      placeholder="Search for a city..."
@@ -42,6 +42,13 @@
                       class="search-button"
                     />
                     </div>
+                    <div class="col-3">
+                        <input
+                         type="submit"
+                          value="Current Location"
+                          class="search-button"
+                        />
+                        </div>
                 </div>
             </div>
       <h2>Current Temperature <strong class="current-temp">2</strong> <span class="celcius-units">℃</span></h2>
