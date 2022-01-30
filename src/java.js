@@ -1,3 +1,4 @@
+// Date and Time
 let now = new Date();
 let days = [
   "Sunday",
@@ -20,6 +21,7 @@ if (minutes < 10) {
 let dateTime = document.querySelector("#date");
 dateTime.innerHTML = `${day}, ${hour}:${minutes}`;
 
+// Temperature and other Features
 function displayTemperature(response) {
   let cityElement = document.querySelector("#city");
   let tempElement = document.querySelector("#currentTemperature");
@@ -75,3 +77,23 @@ function currentLocationSearch(event) {
 
 let currentLocationLocator = document.querySelector("#currentLocation");
 currentLocationLocator.addEventListener("click", currentLocationSearch);
+
+// Unit of Temperature
+function celcisusUnitChange(event) {
+  event.preventDefault();
+  let temperatureCelcius = document.querySelector("#currentTemperature");
+  let celcius = 3;
+  temperatureCelcius.innerHTML = celcius;
+}
+let changeCelcius = document.querySelector("#celcicus");
+changeCelcius.addEventListener("click", celcisusUnitChange);
+
+function fahrenheitUnitChange(event) {
+  event.preventDefault();
+  let fahrenheitElement = document.querySelector("#currentTemperature");
+  let Fahrenheit = (celciusTemperature * 9) / 5 + 32;
+  fahrenheitElement.innerHTML = Fahrenheit;
+}
+
+let changeFahrenheit = document.querySelector("#fahrenheit");
+changeFahrenheit.addEventListener("click", fahrenheitUnitChange);
