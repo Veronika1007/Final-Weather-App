@@ -22,7 +22,7 @@ dateTime.innerHTML = `${day}, ${hour}:${minutes}`;
 
 function displayTemperature(response) {
   let cityElement = document.querySelector("#city");
-  let tempElement = document.querySelector("#temperature");
+  let tempElement = document.querySelector("#currentTemperature");
   let feelsLike = document.querySelector("#feelsLike");
   let description = document.querySelector("#description");
   let humidity = document.querySelector("#humidity");
@@ -30,7 +30,7 @@ function displayTemperature(response) {
   let icon = document.querySelector("#icon");
 
   cityElement.innerHTML = response.data.name;
-  tempElement.innerHTML = response.data.main.temp;
+  tempElement.innerHTML = `${Math.round(response.data.main.temp)} ℃`;
   feelsLike.innerHTML = `Feels Like: ${Math.round(
     response.data.main.feels_like
   )} ℃`;
@@ -44,7 +44,7 @@ function displayTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   icon.setAttribute("alt", response.data.weather[0].description);
-  console.log(tempElement);
+  console.log(response.data.main.temp);
 }
 
 function search(city) {
