@@ -6,8 +6,6 @@ ul {
   position: relative;
   list-style: none;
   text-align: right;
-  right: 10px;
-  top: -180px;
 }
 form {
   margin: 10px;
