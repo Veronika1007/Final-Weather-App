@@ -38,3 +38,9 @@ form {
   padding: 20px;
   width: 100%;
 }
+
+.sourceLink {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
