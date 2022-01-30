@@ -17,20 +17,19 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="src/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>Weather App</title>
   </head>
   <body>
     <div class="container">
       <h1 class="title">Weather Forecast</h1>
       <p class="time"> 
-          <span class="day">Day </span> 
-          <span class="date"> Date </span>
-          <span class="time">Time </span></p>
+          <span id="date">Day </span></p>
       <div class="weather-app">
         <form id="searchCity">
             <div class="row">
-                <div class="col-6">
-                     <input
+                <div class="col-sm-5">
+                     <input class="searchCity"
                      type="search"
                      placeholder="Search for a city..."
                      autofocus="on"
@@ -38,14 +37,14 @@
                      id="newCity"
                      />
                     </div>
-                    <div class="col-3">
+                    <div class="col-sm-2">
                     <input
                      type="submit"
                       value="Search"
                       class="search-button"
                     />
                     </div>
-                    <div class="col-3">
+                    <div class="col-sm-2">
                         <input
                          type="submit"
                           value="Current Location"
@@ -53,12 +52,16 @@
                         />
                     </div>
                 </div>
-      <h2>Current Temperature <strong class="current-temp">2</strong> <span class="celcius-units">℃</span></h2>
+      <h2> 
+        <span id="temperature"></span>  <span id="city"></span></h2>
 
       <ul>
-        <li>Humidity: <span id="humidity"></span>%</li>
-        <li>Wind: <span id="wind"></span> m/h</li>
+        <li>Feels Like: <span id="feelsLike"></span></li> 
         <li>Description: <span id="description"></span></li>
+        <li>Humidity: <span id="humidity"></span>%</li>
+        <li>Wind: <span id="wind"></span></li>
+        
+        
       </ul>
       <h4>Next 5 days</h4>
     </div>

@@ -5,28 +5,30 @@ body {
 ul {
   list-style: none;
 }
+
 .title {
   text-align: center;
   padding-top: 15px;
 }
-
 .weather-app {
   border: 1px solid grey;
   border-radius: 8px;
   background-color: #e7eaf6;
-  max-width: 900px;
+  max-width: 700px;
   margin: 30px auto;
 }
 .time {
   text-align: center;
 }
-#searchCity {
-  padding: 20px;
-  width: 100%;
-}
+
 .search-button {
   background-color: #38598b;
   color: #e7eaf6;
   border-radius: 8px;
   border: 1px solid #38598b;
+}
+
+#searchCity {
+  padding: 20px;
+  width: 100%;
 }
