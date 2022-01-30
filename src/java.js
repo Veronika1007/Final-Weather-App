@@ -23,17 +23,17 @@ dateTime.innerHTML = `${day}, ${hour}:${minutes}`;
 function displayTemperature(response) {
   let cityElement = document.querySelector("#city");
   let tempElement = document.querySelector("#temperature");
-  tempElement.innerHTML = `${Math.round(response.data.main.temp)} ℃`;
   let feelsLike = document.querySelector("#feelsLike");
   let description = document.querySelector("#description");
   let humidity = document.querySelector("#humidity");
   let wind = document.querySelector("#wind");
   let icon = document.querySelector("#icon");
+
   cityElement.innerHTML = response.data.name;
+  tempElement.innerHTML = response.data.main.temp;
   feelsLike.innerHTML = `Feels Like: ${Math.round(
     response.data.main.feels_like
   )} ℃`;
-  console.log(response.data);
   description.innerHTML = response.data.weather[0].description;
   humidity.innerHTML = `Humidity:
    ${response.data.main.humidity}%`;
@@ -44,6 +44,7 @@ function displayTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   icon.setAttribute("alt", response.data.weather[0].description);
+  console.log(tempElement);
 }
 
 function search(city) {
@@ -60,3 +61,17 @@ function searchCity(event) {
 
 let from = document.querySelector("#searchCity");
 from.addEventListener("submit", searchCity);
+
+function retrivePosition(position) {
+  let apiKey = "f9113edd4d5c19caba9923a536e8e53e";
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(displayTemperature);
+}
+function currentLocationSearch(event) {
+  navigator.geolocation.getCurrentPosition(retrivePosition);
+}
+
+let currentLocationLocator = document.querySelector("#currentLocation");
+currentLocationLocator.addEventListener("click", currentLocationSearch);
