@@ -22,9 +22,7 @@ dateTime.innerHTML = `${day}, ${hour}:${minutes}`;
 
 function displayTemperature(response) {
   let tempElement = document.querySelector("#temperature");
-  tempElement.innerHTML = `Current Temperature is ${Math.round(
-    response.data.main.temp
-  )} ℃`;
+  tempElement.innerHTML = `${Math.round(response.data.main.temp)} ℃`;
   let feelsLike = document.querySelector("#feelsLike");
   let description = document.querySelector("#description");
   let humidity = document.querySelector("#humidity");
@@ -43,7 +41,7 @@ function displayTemperature(response) {
 }
 
 let apiKey = "f9113edd4d5c19caba9923a536e8e53e";
-let cityInput = "london";
+let cityInput = "London";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&appid=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(displayTemperature);
