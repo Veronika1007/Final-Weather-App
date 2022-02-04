@@ -46,3 +46,11 @@ form {
   bottom: 0;
   right: 0;
 }
+.weather-forecast {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.forecast-temp {
+  font-size: 14px;
+}

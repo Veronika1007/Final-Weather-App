@@ -90,10 +90,14 @@ changeCelcius.addEventListener("click", celcisusUnitChange);
 
 function fahrenheitUnitChange(event) {
   event.preventDefault();
-  let fahrenheitElement = document.querySelector("#currentTemperature");
-  let Fahrenheit = (celciusTemperature * 9) / 5 + 32;
-  fahrenheitElement.innerHTML = Fahrenheit;
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#currentTemperature");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
 let changeFahrenheit = document.querySelector("#fahrenheit");
 changeFahrenheit.addEventListener("click", fahrenheitUnitChange);
+
+let celsiusTemperature = null;
