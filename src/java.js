@@ -41,17 +41,20 @@ function displayForecast(response) {
       forecastHTML =
         forecastHTML +
         `
-    <div class=" col-2">
-    ${formatDay(forecastDay.dt)} 
+    <div class=" col-md-2">
+   
+    <div class="forecast"> ${formatDay(forecastDay.dt)} 
+    
       <img src="http://openweathermap.org/img/wn/${
         forecastDay.weather[0].icon
-      }@2x.png" alt="" id="icon"> 
+      }@2x.png" alt="" id="iconForecast"> 
       <div class="forecast-temp">
       <span class="forecast-temp-min"> ${Math.round(
         forecastDay.temp.min
       )}º </span>|<span class="forecast-temp-max"> ${Math.round(
           forecastDay.temp.max
         )}º </span>
+      </div>
       </div>
     </div> 
   `;
