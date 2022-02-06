@@ -81,6 +81,8 @@ function displayTemperature(response) {
   let wind = document.querySelector("#wind");
   let icon = document.querySelector("#icon");
 
+  celciusTemperature = response.data.main.temp;
+
   cityElement.innerHTML = response.data.name;
   tempElement.innerHTML = `${Math.round(response.data.main.temp)} ℃`;
   feelsLike.innerHTML = `Feels Like: ${Math.round(
@@ -130,25 +132,15 @@ let currentLocationLocator = document.querySelector("#currentLocation");
 currentLocationLocator.addEventListener("click", currentLocationSearch);
 
 // Unit of Temperature
-function celcisusUnitChange(event) {
-  event.preventDefault();
-  let temperatureCelcius = document.querySelector("#currentTemperature");
-  let celcius = 3;
-  temperatureCelcius.innerHTML = celcius;
-}
-let changeCelcius = document.querySelector("#celcicus");
-changeCelcius.addEventListener("click", celcisusUnitChange);
 
-function fahrenheitUnitChange(event) {
+let celciusTemperature = null;
+
+function displayFahrenheit(event) {
   event.preventDefault();
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-  let temperatureElement = document.querySelector("#currentTemperature");
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+  let tempertureElement = document.querySelector("#currentTemperature");
+  let fahrenheitTemperature = (celciusTemperature * 9) / 5 + 32;
+  tempertureElement.innerHTML = `${Math.round(fahrenheitTemperature)} ℉`;
 }
 
 let changeFahrenheit = document.querySelector("#fahrenheit");
-changeFahrenheit.addEventListener("click", fahrenheitUnitChange);
-
-let celsiusTemperature = null;
+changeFahrenheit.addEventListener("click", displayFahrenheit);
