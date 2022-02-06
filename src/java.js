@@ -144,3 +144,12 @@ function displayFahrenheit(event) {
 
 let changeFahrenheit = document.querySelector("#fahrenheit");
 changeFahrenheit.addEventListener("click", displayFahrenheit);
+
+function displayCelcisus(event) {
+  event.preventDefault();
+  let tempertureElement = document.querySelector("#currentTemperature");
+  tempertureElement.innerHTML = `${Math.round(celciusTemperature)} ℃`;
+}
+
+let changeCelcisus = document.querySelector("#celcisus");
+changeCelcisus.addEventListener("click", displayCelcisus);

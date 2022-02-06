@@ -34,7 +34,7 @@ form {
   border-radius: 8px;
   border: 1px solid #38598b;
 }
-.units {
+#units {
   font-size: 10px;
 }
 #searchCity {
