@@ -22,6 +22,16 @@ let dateTime = document.querySelector("#date");
 dateTime.innerHTML = `${day}, ${hour}:${minutes}`;
 
 // Temperature and other Features
+
+function getForecast(coordinates) {
+  let apiKey = "f9113edd4d5c19caba9923a536e8e53e";
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(displayTemperature);
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function displayTemperature(response) {
   let cityElement = document.querySelector("#city");
   let tempElement = document.querySelector("#currentTemperature");
@@ -46,7 +56,8 @@ function displayTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   icon.setAttribute("alt", response.data.weather[0].description);
-  console.log(response.data.main.temp);
+
+  getForecast(response.data.coord);
 }
 
 function search(city) {
@@ -70,6 +81,7 @@ function retrivePosition(position) {
   let lon = position.coords.longitude;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
   axios.get(apiUrl).then(displayTemperature);
+  axios.get(apiUrl).then(displayForecast);
 }
 function currentLocationSearch(event) {
   navigator.geolocation.getCurrentPosition(retrivePosition);
@@ -77,6 +89,30 @@ function currentLocationSearch(event) {
 
 let currentLocationLocator = document.querySelector("#currentLocation");
 currentLocationLocator.addEventListener("click", currentLocationSearch);
+
+//Forecast
+function displayForecast() {
+  let forecastElement = document.querySelector("#weatherForecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+    <div class=" col-2">
+      ${day}
+      <img src="" alt="" id="icon"> 
+      <div class="forecast-temp">
+      <span class="forecast-temp-min"> 10º </span> |
+      <span class="forecast-temp-max"> 20º </span>
+      </div>
+    </div> 
+  `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+displayForecast();
 
 // Unit of Temperature
 function celcisusUnitChange(event) {
